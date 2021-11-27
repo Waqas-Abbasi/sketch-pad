@@ -1,0 +1,22 @@
+.root {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.canvas-setting {
+    display: flex;
+    flex-direction: row;
+}
+
+.predefined-color {
+    margin-left: 5px;
+    height: 25px;
+    width: 25px;
+}
+
+.colors-list {
+    display: flex;
+    flex-direction: row;
+}
