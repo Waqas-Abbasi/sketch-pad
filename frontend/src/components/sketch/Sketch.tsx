@@ -120,7 +120,7 @@ export default function Sketch() {
                     {COLORS.map(color => <div key={color} className="predefined-color" style={{background: color}}
                                               onClick={() => setColor(color)}/>)}
                 </div>
-                <button onClick={() => setColor('white')}>Erase</button>
+                <button onClick={() => setColor('#ffffff')}>Erase</button>
                 <button onClick={clear}>Clear</button>
                 <button onClick={() => setIsFillActive(true)}>Fill</button>
                 <button onClick={() => setIsFillActive(false)}>Pen</button>
