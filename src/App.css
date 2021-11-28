@@ -1,0 +1,18 @@
+html, body, #root {
+    cursor: crosshair;
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+
+}
+
+.root {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.sketch {
+    border: 5px solid #000000;
+}

@@ -1,0 +1,116 @@
+.canvas-setting {
+    position: absolute;
+    bottom: 5%;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    margin: 0;
+    background-color: #f4f4f7;
+    gap: 5px;
+    padding: 10px 10px 15px;
+    -webkit-box-shadow: 0 4px 6px rgb(50 50 93 / 11%), 0 1px 3px rgb(0 0 0 / 8%);
+    transition: all 0.15s ease;
+    opacity: 0.9;
+    border: 0.125em solid;
+    border-radius: 0.5rem;
+}
+
+.predefined-color {
+    height: 25px;
+    width: 25px;
+    background-color: #f4f4f7;
+    -webkit-box-shadow: 0 4px 6px rgb(50 50 93 / 11%), 0 1px 3px rgb(0 0 0 / 8%);
+    transition: all 0.15s ease;
+    opacity: 0.9;
+    border: 0.125em solid;
+    border-radius: 0.5rem;
+}
+
+.colors-list {
+    display: flex;
+    flex-direction: row;
+}
+
+.button-icon {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+    background-color: #f4f4f7;
+    padding: 5px;
+    -webkit-box-shadow: 0 4px 6px rgb(50 50 93 / 11%), 0 1px 3px rgb(0 0 0 / 8%);
+    transition: all 0.15s ease;
+    opacity: 0.9;
+    border: 0.125em solid;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.375em 0 currentColor;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.button-icon:hover {
+    opacity: 1;
+    transform: translateY(-1px);
+}
+
+.button-text {
+    font-size: 15px;
+    font-weight: 600;
+    font-family: fa5-proxima-nova, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.no-hover:hover {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.value {
+    border-bottom: 4px dashed #bdc3c7;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: -.07em;
+    text-shadow: white 2px 2px 2px;
+}
+
+input[type="range"] {
+    display: block;
+    -webkit-appearance: none;
+    background-color: #bdc3c7;
+    width: 100px;
+    height: 5px;
+    border-radius: 5px;
+    margin: 0 auto;
+    outline: 0;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background-color: #e74c3c;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid white;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    background-color: white;
+    border: 2px solid #e74c3c;
+}
+
+input[type="range"]::-webkit-slider-thumb:active {
+    transform: scale(1.6);
+}
+
+.hover-opacity:hover {
+    opacity: 1;
+    transform: translateY(-1px);
+}
