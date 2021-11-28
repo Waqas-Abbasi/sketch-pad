@@ -105,9 +105,12 @@ export default function App() {
         if (!canvasRef.current) {
             return;
         }
+        const canvas = canvasRef.current
 
-        const context = canvasRef.current.getContext('2d')!;
-        context.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+        const context = canvas.getContext('2d')!;
+
+        context.fillStyle = "white";
+        context.fillRect(0, 0, canvas.width, canvas.height);
     }
 
     return (
