@@ -2,7 +2,7 @@
 
 A drawing app made for DevJam Weekly Projects. This project was built using the Javascript [Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API).
 
-Live URL: 
+Live URL: https://stupefied-lamarr-022da5.netlify.app/
 
 ### Technologies Used
 

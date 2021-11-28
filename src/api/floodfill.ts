@@ -46,22 +46,20 @@ const TOLERANCE = 150;
 export default function floodFill(imageData: ImageData, color: string, newXPosition: number, newYPosition: number): ImageData {
     const targetColor: Color = hexToRGB(color);
 
-    const visited = new Uint8Array(imageData.width * imageData.height);
     const stack: { x: number, y: number }[] = [{x: newXPosition, y: newYPosition}];
     const currentColor = getPixelData(imageData, newXPosition, newYPosition);
 
     while (stack.length > 0) {
         let {x, y} = stack.pop()!;
-        const index = y * (imageData.width * 4) + x * 4;
 
         const pixelColor = getPixelData(imageData, x, y);
         const shouldColorPixel = areColorsEqual(pixelColor, currentColor, TOLERANCE)
+        const alreadyColored = areColorsEqual(pixelColor, targetColor, 0);
         if (
-            visited[index] === -1 || !shouldColorPixel || x < 0 || y < 0 || x >= imageData.width || y >= imageData.height) {
+            alreadyColored || !shouldColorPixel || x < 0 || y < 0 || x >= imageData.width || y >= imageData.height) {
             continue;
         }
 
-        visited[index] =-1
         fillPixel(imageData, targetColor, x, y)
 
 
