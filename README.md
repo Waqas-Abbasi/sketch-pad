@@ -28,4 +28,4 @@ This algorithm calculates color distance based on Pythagorean Theorem in 4D spac
 
 A side effect of this implementation is that if two colors are very similar i.e. if you have markings on the canvas which are light-green, and you flood fill with a slightly darker green then those light-green markings will be ignored (since the distance between the two colors is lower than the tolerance).
 
-This algorithm is also not optimised for performance and currently considers every single pixel inside the canvas.
+This algorithm is also not optimised for performance therefore can be slow for users with large screens (since the canvas is sized on screen size)
