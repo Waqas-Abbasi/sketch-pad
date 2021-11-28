@@ -35,12 +35,16 @@ export default function CanvasControl(
 ) {
     const nodeRef = React.useRef(null);
 
+    const changeColor = (event: ChangeEvent<HTMLInputElement>) => {
+        updateColor(event.target.value);
+    }
+
     return (
         <Draggable bounds="parent" cancel=".cancel" nodeRef={nodeRef}>
             <div className={"canvas-setting  no-hover"} ref={nodeRef}>
                 <div className={'canvas-setting-left'}>
-                    <div className={'button-icon'}>
-                        <div className="predefined-color no-hover" style={{background: color}}/>
+                    <div className={'button-icon cancel'}>
+                        <input type='color' value={color} className={'input-color'} onChange={changeColor} />
                     </div>
                     <div className={'button-icon'} onClick={() => updateCurrentTool(DrawingTool.Pen)}>
                         <FontAwesomeIcon icon={faPen}/>
