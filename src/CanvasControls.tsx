@@ -3,7 +3,7 @@ import {DrawingTool} from "./App";
 import Draggable from 'react-draggable';
 import './CanvasControls.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPen, faEraser, faFillDrip} from '@fortawesome/free-solid-svg-icons'
+import { faPen, faEraser, faFillDrip, faSave} from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -19,7 +19,8 @@ type ControlControlProps = {
     color: string
     updateColor: (color: string) => void
     updateCurrentTool: (tool: DrawingTool) => void
-    clearCanvas: () => void
+    clearCanvas: () => void,
+    saveImage: () => void,
 };
 
 export default function CanvasControl(
@@ -30,11 +31,14 @@ export default function CanvasControl(
         updateColor,
         updateCurrentTool,
         clearCanvas,
+        saveImage,
     }: ControlControlProps
 ) {
+    const nodeRef = React.useRef(null);
+
     return (
-        <Draggable bounds="parent" cancel=".cancel">
-            <div className={"canvas-setting  no-hover"}>
+        <Draggable bounds="parent" cancel=".cancel" nodeRef={nodeRef}>
+            <div className={"canvas-setting  no-hover"} ref={nodeRef}>
                 <div className={'button-icon'}>
                     <div className="predefined-color no-hover" style={{background: color}}/>
                 </div>
@@ -61,6 +65,10 @@ export default function CanvasControl(
                 <div className={'button-icon no-hover'}>
                 {COLORS.map(color => <div key={color} className="predefined-color hover-opacity" style={{background: color}}
                                           onClick={() => updateColor(color)}/>)}
+                </div>
+                <div className={'button-icon'} onClick={saveImage}>
+                    <FontAwesomeIcon icon={faSave}  />
+                    <p className={'button-text'}>Save</p>
                 </div>
             </div>
         </Draggable>

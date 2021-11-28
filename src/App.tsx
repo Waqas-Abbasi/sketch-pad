@@ -113,6 +113,33 @@ export default function App() {
         context.fillRect(0, 0, canvas.width, canvas.height);
     }
 
+    const saveImage = () => {
+        if (!canvasRef.current) {
+            return;
+        }
+        const canvas = canvasRef.current
+
+        /* Use toBlob to get a file from the canvas element */
+        canvas.toBlob(function (blob) {
+
+            if (!blob) {
+                return;
+            }
+
+            /* Get url for this file blob */
+            const url = URL.createObjectURL(blob);
+
+            /* Create temporary link and start download */
+            const link = document.createElement("a");
+            link.download = 'mono-lisa.png';
+            link.href = url;
+            link.click();
+
+            /* Clean up */
+            URL.revokeObjectURL(url);
+        });
+    }
+
     return (
         <div className="root">
             <div id={'sketch'}>
@@ -123,6 +150,7 @@ export default function App() {
                         onMouseMove={draw}/>
             </div>
             <CanvasControl lineWidth={lineWidth} updateLineWidth={updateLineWidth} color={color}
+                           saveImage={saveImage}
                            updateColor={updateColor} updateCurrentTool={setActiveTool} clearCanvas={clearCanvas}/>
         </div>
     )
