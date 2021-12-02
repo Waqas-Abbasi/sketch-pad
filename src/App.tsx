@@ -73,8 +73,8 @@ export default function App() {
         setIsDrawing(false);
     }
 
-    const draw = (event: MouseEvent<HTMLCanvasElement>) => {
-        if (!isDrawing || !canvasRef.current) {
+    const drawOnCanvas = (event: MouseEvent<HTMLCanvasElement>) => {
+        if (activeTool !== DrawingTool.Pen || !canvasRef.current) {
             return;
         }
 
@@ -98,7 +98,14 @@ export default function App() {
         context.closePath();
 
         setMousePosition({x: newXPosition, y: newYPosition})
+    }
 
+    const onMouseMove = (event: MouseEvent<HTMLCanvasElement>) => {
+        if (!isDrawing) {
+            return;
+        }
+
+        drawOnCanvas(event)
     }
 
     const clearCanvas = () => {
@@ -145,9 +152,10 @@ export default function App() {
             <div id={'sketch'}>
                 <canvas id={'canvas'}
                         ref={canvasRef}
+                        onClick={drawOnCanvas}
                         onMouseDown={startDrawing}
                         onMouseUp={stopDrawing}
-                        onMouseMove={draw}/>
+                        onMouseMove={onMouseMove}/>
             </div>
             <CanvasControl lineWidth={lineWidth} updateLineWidth={updateLineWidth} color={color}
                            saveImage={saveImage}

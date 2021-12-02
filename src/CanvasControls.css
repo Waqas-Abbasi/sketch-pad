@@ -1,4 +1,5 @@
 .canvas-setting {
+    cursor: pointer;
     position: absolute;
     bottom: 5%;
     display: flex;
