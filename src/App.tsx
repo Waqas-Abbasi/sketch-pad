@@ -74,7 +74,7 @@ export default function App() {
     }
 
     const drawOnCanvas = (event: MouseEvent<HTMLCanvasElement>) => {
-        if (activeTool !== DrawingTool.Pen || !canvasRef.current) {
+        if (activeTool === DrawingTool.Fill || !canvasRef.current) {
             return;
         }
 
